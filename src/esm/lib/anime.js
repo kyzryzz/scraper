@@ -5,7 +5,7 @@ import cheerio from "cheerio";
  * FORBIDDEN TO SELL AND DELETE MY WM
  */
 
-async function animeSearch(name, callback) {
+async function animeSearch(name, callback = []) {
   const url = `https://www.mynimeku.com/?s=${encodeURI(name)}`;
 
   const response = await fetch(url);
@@ -118,7 +118,7 @@ async function animeSearch(name, callback) {
     }
   });
 
-  callback(datas);
+  callback += datas;
 }
 
 async function animeCharacter(name, callback) {
